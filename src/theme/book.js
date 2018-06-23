@@ -92,9 +92,13 @@ function playpen_text(playpen) {
             tests: false,
             code: text,
         }
-
+        
         if (text.indexOf("#![feature") !== -1) {
             params.channel = "nightly";
+        }
+
+        if (text.indexOf("#[test]") !== -1) {
+            params.tests = true;
         }
 
         result_block.innerText = "Running...";
